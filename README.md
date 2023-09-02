@@ -8,7 +8,17 @@ We try to avoid the "Fat" model/view problem by embedding the rule engine into o
 
 ## Env 
 
-- Python 
+- Python 3.10.12 
 - Django
-- VSCode
+- VSCode 1.81.1
+- WSL2 (Ubuntu)
+
+## Set up
+
+
+python3 -m venv venv
+
+source venv/bin/activate
+
+pip install -r requirements.txt
 
