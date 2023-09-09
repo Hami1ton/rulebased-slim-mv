@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.template import loader
 from django.views.generic import View
 from ..forms import PointCalculationForm
+from ..models import SalesCampaign
 
 def history(request):
     return render(request, "history.html")
@@ -30,9 +31,10 @@ class PureMvtCalcView(View):
         card_rank = form_data.cleaned_data.get("card_rank")
         order_date = form_data.cleaned_data.get("order_date")
         shop = form_data.cleaned_data.get("shop")
-        order_price = form_data.cleaned_data.get("order_price")
+        charge = form_data.cleaned_data.get("product").charge
 
-        sales_campaign = []
+        # decide point grant rate
+        campaign = SalesCampaign.objects.filter(start_date__lte=order_date, end_date__gte=order_date)
         point_grant_rate = 1
         if card_rank == 1:
             point_grant_rate = 1
@@ -41,12 +43,13 @@ class PureMvtCalcView(View):
         elif card_rank == 3:
             point_grant_rate = 3
 
-        if sales_campaign:
-            point_grant_rate = int(point_grant_rate * 1.5)
+        if campaign.count() > 0:
+            point_grant_rate = point_grant_rate * 1.5
 
+        # decide point adding rate
         point_adding_rate = 1
-        if shop:
+        if shop.is_point_extra_service:
             point_adding_rate = 2
 
-        return int((order_price * point_grant_rate / 100) * point_adding_rate)
+        return int((charge * point_grant_rate / 100) * point_adding_rate)
         

@@ -28,4 +28,6 @@ DEBUG=True
 ALLOWED_HOSTS=localhost,127.0.0.1
 ```
 
+python point_calculation/manage.py loaddata point_calculation/point/fixtures/init_data.json
+
 http://127.0.0.1:8000/point/

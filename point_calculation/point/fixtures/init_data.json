@@ -1,0 +1,80 @@
+[
+    {
+        "model": "point.shop",
+        "pk": 1,
+        "fields": {
+            "name": "ShopA",
+            "is_point_extra_service": true
+        }
+    },
+    {
+        "model": "point.shop",
+        "pk": 2,
+        "fields": {
+            "name": "ShopB",
+            "is_point_extra_service": false
+        }
+    },
+    {
+        "model": "point.shop",
+        "pk": 3,
+        "fields": {
+            "name": "ShopC",
+            "is_point_extra_service": false
+        }
+    },
+    {
+        "model": "point.salescampaign",
+        "pk": 1,
+        "fields": {
+            "name": "Summer Campaign",
+            "start_date": "2023-08-01",
+            "end_date": "2023-08-31"
+        }
+    },
+    {
+        "model": "point.product",
+        "pk": 1,
+        "fields": {
+            "name": "Camera",
+            "charge": 10000,
+            "shop": 1
+        }
+    },
+    {
+        "model": "point.product",
+        "pk": 2,
+        "fields": {
+            "name": "Desk",
+            "charge": 5500,
+            "shop": 2
+        }
+    },
+    {
+        "model": "point.product",
+        "pk": 3,
+        "fields": {
+            "name": "Book",
+            "charge": 5100,
+            "shop": 3
+        }
+    },
+    {
+        "model": "point.product",
+        "pk": 4,
+        "fields": {
+            "name": "Laptop",
+            "charge": 200000,
+            "shop": 1
+        }
+    },
+    {
+        "model": "point.product",
+        "pk": 5,
+        "fields": {
+            "name": "Bed",
+            "charge": 2000,
+            "shop": 2
+        }
+    }
+]
