@@ -1,8 +1,8 @@
 from django.urls import path
-from .views import order, history
+from .views import point, history
 
 
 urlpatterns = [
-    path("order", order, name="order"),
+    path("point", point, name="point"),
     path("history", history, name="history"),
 ]
