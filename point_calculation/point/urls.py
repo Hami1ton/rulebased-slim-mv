@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import history, PureMvtCalcView
+from .views.pure_mvt_calc_view import history, PureMvtCalcView
 
 
 urlpatterns = [
