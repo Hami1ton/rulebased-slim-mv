@@ -2,41 +2,7 @@
 {% block content %}
 <div class="container">
     <div class="d-flex justify-content-center align-items-center" style="height: 80vh">
-        <form class="text-center" action="" method="post">{% csrf_token %}
-            <h5 class="mb-5">Point Page</h5>
-
-            <!-- Card Rank -->
-            <div style="font-size: 1.5rem; text-align: left;">
-                <div><i class="far fa-credit-card"></i> Card Rank</div>
-            </div>
-            {{ form.card_rank }}
-
-            <!-- Order Date -->            
-            <div style="font-size: 1.5rem; text-align: left;">
-                <div><i class="far fa-calendar"></i> Order Date</div>
-            </div>
-            {{ form.order_date }}
-
-            <!-- Shop -->
-            <div style="font-size: 1.5rem; text-align: left;">
-                <div><i class="fas fa-shop"></i> Shop</div>
-            </div>
-            {{ form.shop }}
-
-            <!-- Product -->
-            <div style="font-size: 1.5rem; text-align: left;">
-                <div><i class="fas fa-dollar-sign"></i> Product</div>
-            </div>
-            {{ form.product }}
-
-            <button type="submit" class="btn btn-primary" >Calculate</button>
-
-            {% if point >= 0 %}
-            <div style="font-size: 1.5rem;">
-                Your point is {{ point }}.
-            </div>
-            {% endif %}
-        </form>
+        {% include "form.html" %}
     </div>
 </div>
 

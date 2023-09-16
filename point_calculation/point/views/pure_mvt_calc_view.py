@@ -15,7 +15,6 @@ class PureMvtCalcView(View):
     def post(self, request):
         f = PointCalculationForm(request.POST)
         if f.is_valid():
-            print()
             point = self.calculate(f)
 
             return render(request, "point.html", {
