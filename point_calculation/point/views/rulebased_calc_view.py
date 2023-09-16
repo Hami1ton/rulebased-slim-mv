@@ -3,14 +3,11 @@ from django.views.generic import View
 from ..forms import PointCalculationForm
 from ..models import SalesCampaign
 
-def history(request):
-     return render(request, "history.html")
 
-
-class PureMvtCalcView(View):
+class RulebasedCalcView(View):
     def get(self, request):
         f = PointCalculationForm()
-        return render(request, "point.html", {"form": f} )
+        return render(request, "point-rule.html", {"form": f} )
 
     def post(self, request):
         f = PointCalculationForm(request.POST)
@@ -18,7 +15,7 @@ class PureMvtCalcView(View):
             print()
             point = self.calculate(f)
 
-            return render(request, "point.html", {
+            return render(request, "point-rule.html", {
                 "form": f,
                 "point": point
                 })
